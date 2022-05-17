@@ -6,13 +6,13 @@ echo "...update"
 apt-get update -y
 apt-get upgrade -y
 echo "...install & configure packages"
-#apt-get install -y \
-#    apt-utils apt-transport-https ca-certificates software-properties-common build-essential sudo gnupg \
-#    curl wget jq git iputils-ping netcat zip unzip procps file gcc lsb-release \
-#    gnupg-utils gpg openssl readline-common less libcurl4 libssl1.1 libffi7 \
-#    build-essential software-properties-common debconf-utils dos2unix flex bison \
-#    libunwind8 libicu66 tzdata python-is-python3 python3-pip ssh telnet \
-#    locales language-pack-hu language-pack-en language-pack-en-base language-pack-hu-base fonts-dejavu ttf-dejavu && \
+apt-get install -y \
+    apt-utils apt-transport-https ca-certificates software-properties-common build-essential sudo gnupg \
+    curl wget jq git iputils-ping netcat netcat-openbsd zip unzip file gcc lsb-release \
+    gnupg-utils gpg openssl readline-common less libcurl4 libssl1.1 libffi7 jq \
+    software-properties-common debconf-utils dos2unix \
+    libunwind8 libicu66 tzdata python-is-python3 python3-pip \
+    locales language-pack-hu language-pack-en language-pack-en-base language-pack-hu-base fonts-dejavu ttf-dejavu
 #echo "Europe/Budapest" > /etc/timezone && \
 #ln -fs /usr/share/zoneinfo/Europe/Budapest /etc/localtime && \
 #dpkg-reconfigure --frontend noninteractive tzdata && \

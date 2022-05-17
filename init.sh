@@ -4,7 +4,7 @@ set -e
 
 echo "...update"
 apt-get update -y
-apt-get upgrade -y
+#apt-get upgrade -y
 echo "...install & configure packages"
 apt-get install -y \
     apt-utils apt-transport-https ca-certificates software-properties-common build-essential sudo gnupg \

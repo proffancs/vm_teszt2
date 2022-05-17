@@ -8,7 +8,7 @@ set -e
 echo "...OTP IMAGEBUILDER... install & configure packages"
 apt-get install -y \
     apt-utils apt-transport-https ca-certificates software-properties-common build-essential sudo gnupg \
-    curl wget git netcat openssl netcat-openbsd zip unzip file gcc lsb-release \
+    curl wget git netcat netcat-openbsd zip unzip file gcc lsb-release \
     gnupg-utils gpg readline-common less libcurl4 libssl1.1 libffi7 jq \
     software-properties-common debconf-utils dos2unix \
     libunwind8 libicu66 tzdata python-is-python3 python3-pip \

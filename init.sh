@@ -7,7 +7,7 @@
 #apt-get upgrade -y
 echo "...OTP IMAGEBUILDER... install & configure packages"
 apt-get install -y --no-install-recommends \
-    apt-utils apt-transport-https ca-certificates software-properties-common build-essential sudo gnupg \
+    mc apt-utils apt-transport-https ca-certificates software-properties-common build-essential sudo gnupg \
     curl wget git netcat netcat-openbsd zip unzip file gcc lsb-release \
     gnupg-utils gpg readline-common less libcurl4 libffi7 jq \
     software-properties-common debconf-utils dos2unix \

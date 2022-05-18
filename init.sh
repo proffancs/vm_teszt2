@@ -12,7 +12,7 @@ apt-get install -y --no-install-recommends \
     gnupg-utils gpg readline-common less libcurl4 libffi7 jq \
     software-properties-common debconf-utils dos2unix \
     libunwind8 libicu66 tzdata python-is-python3 python3-pip \
-    locales language-pack-hu language-pack-en language-pack-en-base language-pack-hu-base fonts-dejavu ttf-dejavu
+    locales language-pack-hu language-pack-en language-pack-en-base language-pack-hu-base
 #echo "Europe/Budapest" > /etc/timezone && \
 #ln -fs /usr/share/zoneinfo/Europe/Budapest /etc/localtime && \
 #dpkg-reconfigure --frontend noninteractive tzdata && \

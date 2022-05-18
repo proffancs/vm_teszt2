@@ -2,8 +2,8 @@
 
 #set -e
 
-#echo "...OTP IMAGEBUILDER... update"
-#apt-get update -y
+echo "...OTP IMAGEBUILDER... update"
+apt-get update -y
 #apt-get upgrade -y
 echo "...OTP IMAGEBUILDER... install & configure packages"
 apt-get install -y --no-install-recommends \

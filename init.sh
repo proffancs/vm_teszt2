@@ -10,10 +10,7 @@ echo "...OTP EBIZ COMMON IMAGEBUILDER... install & configure packages"
 apt-get install -y \
     apt apt-utils apt-transport-https ca-certificates software-properties-common sudo gnupg \
     curl wget git netcat-openbsd file lsb-release debconf-i18n \
-    gnupg-utils gpg readline-common less libcurl4 \
-    software-properties-common \
-    libunwind8  \
-    locales
+    gnupg-utils gpg readline-common less libcurl4 software-properties-common libunwind8 locales
 echo "...OTP EBIZ COMMON IMAGEBUILDER... update certificates"
 update-ca-certificates
 echo "...OTP EBIZ COMMON IMAGEBUILDER... install kube*"

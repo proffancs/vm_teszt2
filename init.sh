@@ -47,8 +47,22 @@ tar -xvf downloadazcopy-v10-linux
 cp azcopy_linux_amd64_*/azcopy /usr/bin/
 cd ..
 rm -rf azcopy
+chmod gou+x /usr/bin/azcopy
 echo "...OTP EBIZ COMMON IMAGEBUILDER... install github cli"
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 apt-get update -y
 apt-get install -y gh
+echo "...OTP EBIZ COMMON IMAGEBUILDER... checking versions"
+echo "...kubectl"
+kubectl version --client
+echo "...helm"
+helm version
+echo "...azure cli"
+az --version
+echo "...kubelogin"
+kubelogin --version
+echo "...azcopy"
+azcopy --version
+echo "...github cli"
+gh --version

@@ -1,11 +1,7 @@
 #!/bin/bash
 
-#set -e
-
 echo "...OTP EBIZ COMMON IMAGEBUILDER... update"
 apt-get update -y
-#echo "...OTP EBIZ COMMON IMAGEBUILDER... upgrade"
-#apt-get upgrade -y
 echo "...OTP EBIZ COMMON IMAGEBUILDER... install & configure packages"
 apt-get install -y \
     apt apt-utils apt-transport-https ca-certificates software-properties-common sudo gnupg jq \
@@ -51,15 +47,15 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 apt-get update -y
 apt-get install -y gh
 echo "...OTP EBIZ COMMON IMAGEBUILDER... checking versions"
-echo "...kubectl"
+echo "...kubectl version"
 kubectl version --client
-echo "...helm"
+echo "...helm version"
 helm version
-echo "...azure cli"
+echo "...azure cli version"
 az --version
-echo "...kubelogin"
+echo "...kubelogin version"
 kubelogin --version
-echo "...azcopy"
+echo "...azcopy version"
 azcopy --version
-echo "...github cli"
+echo "...github cli version"
 gh --version

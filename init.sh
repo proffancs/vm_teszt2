@@ -5,7 +5,7 @@ apt-get update -y
 echo "...OTP EBIZ COMMON IMAGEBUILDER... install & configure packages"
 apt-get install -y \
     apt apt-utils apt-transport-https ca-certificates software-properties-common sudo gnupg jq \
-    curl wget git netcat-openbsd file lsb-release debconf-i18n gnupg-agent \
+    curl wget git netcat-openbsd file lsb-release debconf-i18n gnupg-agent aufs-tools cgroupfs-mount slirp4netns cgroup-lite \
     gnupg-utils gpg readline-common less libcurl4 software-properties-common libunwind8 locales
 echo "...OTP EBIZ COMMON IMAGEBUILDER... update certificates"
 update-ca-certificates

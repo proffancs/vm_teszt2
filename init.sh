@@ -5,7 +5,7 @@ apt-get update -y
 echo "...OTP EBIZ COMMON IMAGEBUILDER... install & configure packages"
 apt-get install -y \
     apt apt-utils apt-transport-https ca-certificates software-properties-common sudo gnupg jq \
-    curl wget git netcat-openbsd file lsb-release debconf-i18n \
+    curl wget git netcat-openbsd file lsb-release debconf-i18n gnupg-agent \
     gnupg-utils gpg readline-common less libcurl4 software-properties-common libunwind8 locales
 echo "...OTP EBIZ COMMON IMAGEBUILDER... update certificates"
 update-ca-certificates
@@ -46,6 +46,11 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 apt-get update -y
 apt-get install -y gh
+echo "...OTP EBIZ COMMON IMAGEBUILDER... install docker"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu bionic stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get update -y
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 echo "...OTP EBIZ COMMON IMAGEBUILDER... checking versions"
 echo "...kubectl version"
 kubectl version --client
@@ -59,3 +64,7 @@ echo "...azcopy version"
 azcopy --version
 echo "...github cli version"
 gh --version
+echo "...docker version"
+docker version
+echo "...docker test run"
+docker run hello-world

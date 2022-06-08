@@ -1,5 +1,11 @@
 #!/bin/bash
 
+VERSION_NODE="14"
+VERSION_ANGULAR="13"
+VERSION_JDK="17"
+VERSION_MAVEN="3.8.5"
+URL_MAVEN="https://dlcdn.apache.org/maven/maven-3/${VERSION_MAVEN}/binaries"
+
 echo "...OTP EBIZ COMMON IMAGEBUILDER... update"
 apt-get update -y
 echo "...OTP EBIZ COMMON IMAGEBUILDER... install & configure packages"
@@ -51,6 +57,19 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu bionic stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update -y
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+echo "...OTP EBIZ COMMON IMAGEBUILDER... install nodejs, npm"
+curl -sL https://deb.nodesource.com/setup_${VERSION_NODE}.x | bash -
+apt-get install -y nodejs
+echo "...OTP EBIZ COMMON IMAGEBUILDER... install angular"
+echo N | npm install -g @angular/cli@${VERSION_ANGULAR}
+echo "...OTP EBIZ COMMON IMAGEBUILDER... install java"
+apt-get install -y openjdk-${VERSION_JDK}-jdk
+echo "...OTP EBIZ COMMON IMAGEBUILDER... install maven"
+mkdir -p /usr/share/maven /usr/share/maven/ref
+curl -fsSL -o /tmp/apache-maven.tar.gz ${URL_MAVEN}/apache-maven-${VERSION_MAVEN}-bin.tar.gz
+tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1
+rm -f /tmp/apache-maven.tar.gz
+ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 echo "...OTP EBIZ COMMON IMAGEBUILDER... checking versions"
 echo "...kubectl version"
 kubectl version --client
@@ -64,6 +83,16 @@ echo "...azcopy version"
 azcopy --version
 echo "...github cli version"
 gh --version
+echo "...ng version"
+ng --version
+echo "...npm version"
+npm --version
+echo "...nodejs version"
+node -v
+echo "...java version"
+java -version
+echo "...maven version"
+mvn -version
 echo "...docker version"
 docker version
 echo "...docker test run"
